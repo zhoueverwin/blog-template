@@ -22,7 +22,4 @@ const nextConfig = async () => {
   };
 };
 
-module.exports = {
-  distDir: 'out',  // Change 'out' to your desired output directory
-};
-
+module.exports = nextConfig;
