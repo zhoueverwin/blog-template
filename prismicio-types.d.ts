@@ -104,7 +104,38 @@ interface PageDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<PageDocumentDataSlicesSlice>;
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
 }
 
 /**
@@ -157,6 +188,61 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
+ * Primary content in *EmbedVideo → Default → Primary*
+ */
+export interface EmbedVideoSliceDefaultPrimary {
+  /**
+   * videoDescription field in *EmbedVideo → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: embed_video.default.primary.videodescription
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  videodescription: prismic.RichTextField;
+
+  /**
+   * youtubeVideo field in *EmbedVideo → Default → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: embed_video.default.primary.youtubevideo
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  youtubevideo: prismic.EmbedField;
+}
+
+/**
+ * Default variation for EmbedVideo Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EmbedVideoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<EmbedVideoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *EmbedVideo*
+ */
+type EmbedVideoSliceVariation = EmbedVideoSliceDefault;
+
+/**
+ * EmbedVideo Shared Slice
+ *
+ * - **API ID**: `embed_video`
+ * - **Description**: EmbedVideo
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EmbedVideoSlice = prismic.SharedSlice<
+  "embed_video",
+  EmbedVideoSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -174,7 +260,7 @@ export interface HeroSliceDefaultPrimary {
    * Button Link field in *Hero → Default → Primary*
    *
    * - **Field Type**: Link
-   * - **Placeholder**: Button Link
+   * - **Placeholder**: *None*
    * - **API ID Path**: hero.default.primary.buttonLink
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
@@ -654,6 +740,10 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      EmbedVideoSlice,
+      EmbedVideoSliceDefaultPrimary,
+      EmbedVideoSliceVariation,
+      EmbedVideoSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
