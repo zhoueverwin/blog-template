@@ -12,19 +12,31 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "videodescription": {
+        "background": {
+          "type": "Select",
+          "config": {
+            "label": "background",
+            "placeholder": "",
+            "options": [
+              "Grey",
+              "Green"
+            ],
+            "default_value": "Grey"
+          }
+        },
+        "test": {
           "type": "StructuredText",
           "config": {
-            "label": "videoDescription",
+            "label": "test",
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         },
-        "youtubevideo": {
+        "embed": {
           "type": "Embed",
           "config": {
-            "label": "youtubeVideo",
+            "label": "embed",
             "placeholder": ""
           }
         }

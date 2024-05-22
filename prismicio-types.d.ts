@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | EmbedVideoSlice
   | HeroSlice
   | QuoteSlice
   | TextSlice
@@ -192,24 +193,35 @@ export type AllDocumentTypes =
  */
 export interface EmbedVideoSliceDefaultPrimary {
   /**
-   * videoDescription field in *EmbedVideo → Default → Primary*
+   * background field in *EmbedVideo → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Grey
+   * - **API ID Path**: embed_video.default.primary.background
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background: prismic.SelectField<"Grey" | "Green", "filled">;
+
+  /**
+   * test field in *EmbedVideo → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: embed_video.default.primary.videodescription
+   * - **API ID Path**: embed_video.default.primary.test
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  videodescription: prismic.RichTextField;
+  test: prismic.RichTextField;
 
   /**
-   * youtubeVideo field in *EmbedVideo → Default → Primary*
+   * embed field in *EmbedVideo → Default → Primary*
    *
    * - **Field Type**: Embed
    * - **Placeholder**: *None*
-   * - **API ID Path**: embed_video.default.primary.youtubevideo
+   * - **API ID Path**: embed_video.default.primary.embed
    * - **Documentation**: https://prismic.io/docs/field#embed
    */
-  youtubevideo: prismic.EmbedField;
+  embed: prismic.EmbedField;
 }
 
 /**
