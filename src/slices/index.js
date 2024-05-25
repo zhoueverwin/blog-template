@@ -3,11 +3,12 @@
 import dynamic from "next/dynamic";
 
 export const components = {
-  embed_video: dynamic(() => import("./EmbedVideo")),
   hero: dynamic(() => import("./Hero")),
   image: dynamic(() => import("./Image")),
   image_cards: dynamic(() => import("./ImageCards")),
   quote: dynamic(() => import("./Quote")),
   text: dynamic(() => import("./Text")),
   text_with_image: dynamic(() => import("./TextWithImage")),
+  video_embed: dynamic(() => import("./VideoEmbed")),
+  waitlist: dynamic(() => import("./Waitlist")),
 };

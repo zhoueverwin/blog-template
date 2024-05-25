@@ -35,7 +35,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "embed_video": {
+            "video_embed": {
               "type": "SharedSlice"
             },
             "hero": {

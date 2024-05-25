@@ -1,8 +1,8 @@
 {
-  "id": "embed_video",
+  "id": "video_embed",
   "type": "SharedSlice",
-  "name": "EmbedVideo",
-  "description": "EmbedVideo",
+  "name": "VideoEmbed",
+  "description": "VideoEmbed",
   "variations": [
     {
       "id": "default",
@@ -12,10 +12,10 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "background": {
+        "background_color": {
           "type": "Select",
           "config": {
-            "label": "background",
+            "label": "Background Color",
             "placeholder": "",
             "options": [
               "Grey",
@@ -24,10 +24,10 @@
             "default_value": "Grey"
           }
         },
-        "test": {
+        "title": {
           "type": "StructuredText",
           "config": {
-            "label": "test",
+            "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"

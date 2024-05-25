@@ -62,7 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
-  | EmbedVideoSlice
+  | VideoEmbedSlice
   | HeroSlice
   | QuoteSlice
   | TextSlice
@@ -187,72 +187,6 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
-
-/**
- * Primary content in *EmbedVideo → Default → Primary*
- */
-export interface EmbedVideoSliceDefaultPrimary {
-  /**
-   * background field in *EmbedVideo → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Grey
-   * - **API ID Path**: embed_video.default.primary.background
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  background: prismic.SelectField<"Grey" | "Green", "filled">;
-
-  /**
-   * test field in *EmbedVideo → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: embed_video.default.primary.test
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  test: prismic.RichTextField;
-
-  /**
-   * embed field in *EmbedVideo → Default → Primary*
-   *
-   * - **Field Type**: Embed
-   * - **Placeholder**: *None*
-   * - **API ID Path**: embed_video.default.primary.embed
-   * - **Documentation**: https://prismic.io/docs/field#embed
-   */
-  embed: prismic.EmbedField;
-}
-
-/**
- * Default variation for EmbedVideo Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type EmbedVideoSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<EmbedVideoSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *EmbedVideo*
- */
-type EmbedVideoSliceVariation = EmbedVideoSliceDefault;
-
-/**
- * EmbedVideo Shared Slice
- *
- * - **API ID**: `embed_video`
- * - **Description**: EmbedVideo
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type EmbedVideoSlice = prismic.SharedSlice<
-  "embed_video",
-  EmbedVideoSliceVariation
->;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -733,6 +667,147 @@ export type TextWithImageSlice = prismic.SharedSlice<
   TextWithImageSliceVariation
 >;
 
+/**
+ * Primary content in *VideoEmbed → Default → Primary*
+ */
+export interface VideoEmbedSliceDefaultPrimary {
+  /**
+   * Background Color field in *VideoEmbed → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Grey
+   * - **API ID Path**: video_embed.default.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background_color: prismic.SelectField<"Grey" | "Green", "filled">;
+
+  /**
+   * Title field in *VideoEmbed → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_embed.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * embed field in *VideoEmbed → Default → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_embed.default.primary.embed
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  embed: prismic.EmbedField;
+}
+
+/**
+ * Default variation for VideoEmbed Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoEmbedSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<VideoEmbedSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *VideoEmbed*
+ */
+type VideoEmbedSliceVariation = VideoEmbedSliceDefault;
+
+/**
+ * VideoEmbed Shared Slice
+ *
+ * - **API ID**: `video_embed`
+ * - **Description**: VideoEmbed
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoEmbedSlice = prismic.SharedSlice<
+  "video_embed",
+  VideoEmbedSliceVariation
+>;
+
+/**
+ * Primary content in *Waitlist → Default → Primary*
+ */
+export interface WaitlistSliceDefaultPrimary {
+  /**
+   * title field in *Waitlist → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: waitlist.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * explanation field in *Waitlist → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: waitlist.default.primary.explanation
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  explanation: prismic.RichTextField;
+
+  /**
+   * email field in *Waitlist → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: waitlist.default.primary.email
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  email: prismic.RichTextField;
+
+  /**
+   * button field in *Waitlist → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: waitlist.default.primary.button
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  button: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Waitlist Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WaitlistSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<WaitlistSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Waitlist*
+ */
+type WaitlistSliceVariation = WaitlistSliceDefault;
+
+/**
+ * Waitlist Shared Slice
+ *
+ * - **API ID**: `waitlist`
+ * - **Description**: Waitlist
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WaitlistSlice = prismic.SharedSlice<
+  "waitlist",
+  WaitlistSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -752,10 +827,6 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
-      EmbedVideoSlice,
-      EmbedVideoSliceDefaultPrimary,
-      EmbedVideoSliceVariation,
-      EmbedVideoSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
@@ -787,6 +858,14 @@ declare module "@prismicio/client" {
       TextWithImageSliceVariation,
       TextWithImageSliceDefault,
       TextWithImageSliceWithButton,
+      VideoEmbedSlice,
+      VideoEmbedSliceDefaultPrimary,
+      VideoEmbedSliceVariation,
+      VideoEmbedSliceDefault,
+      WaitlistSlice,
+      WaitlistSliceDefaultPrimary,
+      WaitlistSliceVariation,
+      WaitlistSliceDefault,
     };
   }
 }
